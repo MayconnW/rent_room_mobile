@@ -1,0 +1,66 @@
+.avatar{
+	height: 75;
+  width: 75;
+  border-radius: 36;
+}
+
+.avatar-container {
+  border-color: white;
+  border-width: 2;
+  border-radius: 38;
+}
+
+.profile-container {
+  vertical-align: middle;
+  horizontal-align: left;
+  margin-left: 10;
+}
+
+.name{
+	color: #000000;
+  font-weight: bold;
+  border-color: #000000;  
+  margin-left: 5;
+  margin-top: 6;
+  font-size: 18;  
+}
+
+.phone{
+	color: #000000;
+  font-weight: normal;
+  border-color: #000000;  
+  margin-left: 5;
+  margin-top: 5;
+  font-size: 15;    
+}
+
+.green {
+  background-color: green;  
+}
+.list-right-side{ 
+  padding: 0; 
+  margin-left: 5;
+  horizontal-align: right;    
+  vertical-align: middle;   
+  color: #ffffff;    
+  border-radius:0;
+  height: 30;
+  width: 70;    
+}
+
+.rent-text{
+	color: white;  
+  border-color: #000000;  
+  margin: 0;
+  margin-top: 3;
+  font-size: 14;  
+}
+
+.rent-number{
+	color: white;  
+  border-color: #000000;  
+  horizontal-align: center;
+  margin-top: 1;
+  font-size: 16;   
+  margin: 0; 
+}

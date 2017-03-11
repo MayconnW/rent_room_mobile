@@ -1,0 +1,22 @@
+<ActionBar title="Hotels"></ActionBar>
+<GridLayout>
+	<ListView [items]="hotelList">
+		<template let-item="item">
+			<stack-layout class="stack-item">
+				<grid-layout columns="*, auto" rows="auto, auto" class="list-item">
+					<StackLayout class="profile-container">
+						<StackLayout orientation="horizontal">
+							<StackLayout class="avatar-container">
+								<Image [src]="item.photo_url" class="avatar"> </Image>					
+							</StackLayout>
+							<StackLayout>
+								<Label [text]="item.description" class="name"></Label>
+								<Label [text]="item.full_address()" class="phone"></Label>
+							</StackLayout>							
+						</StackLayout>
+					</StackLayout>					
+				</grid-layout>
+			</stack-layout>
+		</template>
+	</ListView>	
+</GridLayout> 

@@ -1,0 +1,22 @@
+<ActionBar title="Customers"></ActionBar>
+<GridLayout>
+	<ListView [items]="clientList">
+		<template let-item="item">
+			<stack-layout class="stack-item">
+				<grid-layout columns="*, auto" rows="auto, auto" class="list-item">
+					<StackLayout class="profile-container">
+						<StackLayout orientation="horizontal">
+							<StackLayout class="avatar-container">
+								<Image [src]="item.photo_url" class="avatar"> </Image>					
+							</StackLayout>
+							<StackLayout>
+								<Label [text]="item.full_name()" class="name"></Label>
+								<Label [text]="item.formated_phone()" class="phone"></Label>
+							</StackLayout>
+						</StackLayout>
+					</StackLayout>					
+				</grid-layout>
+			</stack-layout>
+		</template>
+	</ListView>	
+</GridLayout> 

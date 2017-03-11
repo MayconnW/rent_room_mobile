@@ -1,0 +1,47 @@
+.add-bar {
+  background-color: #CB1D00;
+  padding: 5 10;
+}
+.add-bar Image {
+  height: 15;
+  vertical-align: center;
+  margin-left: 10;
+  margin-right: 5;
+}
+TextField {
+  color: white;
+}
+.list-item {
+  
+  padding: 10;
+  margin-bottom: 5;    
+}
+/*.stack-item {
+  background-color: aliceblue;
+  padding: 10;
+  margin: 0;
+}*/
+.list-title {
+  color: #000000;
+  font-weight: bold;
+}
+.list-subtitle {
+  margin-top: 20;
+}
+.red {
+  background-color: red;
+  padding-left: 12;
+}
+.green {
+  background-color: green;
+  padding-left: 18;
+}
+.list-right-side{  
+  horizontal-align: right;     
+  color: #ffffff;
+  
+  border-radius:0;
+  height: 30;
+  width: 70;  
+  padding-top: 5;
+}

@@ -1,0 +1,27 @@
+<ActionBar title="Apartments"></ActionBar>
+<GridLayout>
+	<ListView [items]="list">
+		<template let-item="item">
+			<stack-layout class="stack-item">
+				<grid-layout columns="*, auto" rows="auto, auto" class="list-item">
+					<StackLayout class="profile-container">
+						<StackLayout orientation="horizontal">
+							<StackLayout class="avatar-container">
+								<Image [src]="item.photo_url" class="avatar"> </Image>					
+							</StackLayout>
+							<StackLayout>
+								<stack-layout class="stack-item">
+									<grid-layout columns="*, auto" rows="auto, auto" class="list-item">
+										<Label [text]="item.description" class="list-title"></Label>
+										<Label text={{item.formatPrice(item.price_month)}} class="list-subtitle"></Label>
+										<Label [text]="item.free?'Free':'Rented'" class="list-right-side" [class.green]="item.free" [class.red]="!item.free"></Label>
+									</grid-layout>
+								</stack-layout>
+							</StackLayout>							
+						</StackLayout>
+					</StackLayout>					
+				</grid-layout>
+			</stack-layout>
+		</template>
+	</ListView>	
+</GridLayout> 

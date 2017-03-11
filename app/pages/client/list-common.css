@@ -1,0 +1,35 @@
+.avatar{
+	height: 75;
+  width: 75;
+  border-radius: 36;
+}
+
+.avatar-container {
+  border-color: white;
+  border-width: 2;
+  border-radius: 38;
+}
+
+.profile-container {
+  vertical-align: middle;
+  horizontal-align: left;
+  margin-left: 10;
+}
+
+.name{
+	color: #000000;
+  font-weight: bold;
+  border-color: #000000;  
+  margin-left: 5;
+  margin-top: 6;
+  font-size: 18;  
+}
+
+.phone{
+	color: #000000;
+  font-weight: normal;
+  border-color: #000000;  
+  margin-left: 5;
+  margin-top: 5;
+  font-size: 15;    
+}
