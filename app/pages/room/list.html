@@ -1,27 +1,69 @@
-<ActionBar title="Apartments"></ActionBar>
-<GridLayout>
-	<ListView [items]="list">
-		<template let-item="item">
-			<stack-layout class="stack-item">
-				<grid-layout columns="*, auto" rows="auto, auto" class="list-item">
-					<StackLayout class="profile-container">
-						<StackLayout orientation="horizontal">
-							<StackLayout class="avatar-container">
-								<Image [src]="item.photo_url" class="avatar"> </Image>					
+
+<RadSideDrawer>
+    <StackLayout tkDrawerContent class="sideStackLayout">
+        
+			<StackLayout class="p bgc-white sideStackLayout side-menu">
+
+				<StackLayout class="top-menu">
+					<StackLayout class="avatar-container">
+						<Image [src]="userApi.photo_url" class="avatar"> </Image>					
+					</StackLayout>
+					<ListView [items]="itemsTopMenu" row="1">
+						<template let-item="item" let-i="index">
+							<StackLayout orientation="horizontal" class="item-menu-container">
+								<Image src="res://{{item.icon}}" class="icon-menu"> </Image>
+								<Label text="{{item.name}}" class="page-name" ></Label>
 							</StackLayout>
-							<StackLayout>
-								<stack-layout class="stack-item">
-									<grid-layout columns="*, auto" rows="auto, auto" class="list-item">
-										<Label [text]="item.description" class="list-title"></Label>
-										<Label text={{item.formatPrice(item.price_month)}} class="list-subtitle"></Label>
-										<Label [text]="item.free?'Free':'Rented'" class="list-right-side" [class.green]="item.free" [class.red]="!item.free"></Label>
-									</grid-layout>
-								</stack-layout>
-							</StackLayout>							
-						</StackLayout>
-					</StackLayout>					
-				</grid-layout>
-			</stack-layout>
-		</template>
-	</ListView>	
-</GridLayout> 
+						</template>
+					</ListView>				
+				</StackLayout>
+
+				<StackLayout class="bottom-menu">
+					<ListView [items]="itemsBottomMenu" row="1">
+						<template let-item="item" let-i="index">
+							<StackLayout orientation="horizontal" class="item-menu-container">
+								<Image src="res://{{item.icon}}" class="icon-menu"> </Image>
+								<Label text="{{item.name}}" class="page-name" ></Label>
+							</StackLayout>
+						</template>
+					</ListView>
+				</StackLayout>
+
+
+			</StackLayout>				
+    </StackLayout>
+
+    <StackLayout tkMainContent>
+        
+			<GridLayout>
+				<ListView [items]="list">
+					<template let-item="item">
+						<stack-layout class="stack-item">
+							<grid-layout columns="*, auto" rows="auto, auto" class="list-item">
+								<StackLayout class="profile-container">
+									<StackLayout orientation="horizontal">
+										<StackLayout class="draw-list-container">
+											<Image [src]="item.photo_url" class="draw-list"> </Image>					
+										</StackLayout>
+										<StackLayout>
+											<stack-layout class="stack-item">
+												<grid-layout columns="*, auto" rows="auto, auto" class="list-item">
+													<Label [text]="item.description" class="list-title"></Label>
+													<Label text={{item.formatPrice(item.price_month)}} class="list-subtitle"></Label>
+													<Label [text]="item.free?'Free':'Rented'" class="list-right-side" [class.green]="item.free" [class.red]="!item.free"></Label>
+												</grid-layout>
+											</stack-layout>
+										</StackLayout>						
+									</StackLayout>
+								</StackLayout>					
+							</grid-layout>
+						</stack-layout>
+					</template>
+				</ListView>	
+			</GridLayout> 
+
+				
+    </StackLayout>
+</RadSideDrawer>
+
+

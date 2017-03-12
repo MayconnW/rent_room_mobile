@@ -8,7 +8,7 @@ import { Config } from "../config";
 
 @Injectable()
 export class RoomService {    
-  headers: Headers;
+  headers: Headers;  
   constructor(private http: Http) {
     this.headers = new Headers();
     this.headers.append("Content-Type", "application/json");

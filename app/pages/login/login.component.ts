@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {    
     this.page.actionBarHidden = true;
-    this.page.backgroundImage = "res://bg_login";
+    //this.page.backgroundImage = "res://bg_login";
   }
 
   submit() {    
@@ -42,7 +42,8 @@ export class LoginComponent implements OnInit {
     .subscribe(
       response => {         
         if (response.token != ''){
-          this.router.navigate(["/rooms"]);
+          this.page.actionBarHidden = false;
+          this.router.navigate(["/clients"]);
         }else{
           alert(response.message);
         }        

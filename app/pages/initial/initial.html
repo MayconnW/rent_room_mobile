@@ -1,0 +1,48 @@
+<ActionBar title="Rent Rooms">  
+  <NavigationButton icon="res://ic_drawer" (tap)="openDrawer()" text="Go Back"></NavigationButton>  
+</ActionBar>  
+
+<RadSideDrawer>
+    <StackLayout tkDrawerContent class="sideStackLayout">
+        
+			<StackLayout class="p bgc-white sideStackLayout side-menu">
+
+				<StackLayout class="top-menu">
+					<StackLayout class="avatar-container">
+						<Image [src]="userApi?userApi.photo_url:''" class="avatar"> </Image>					
+					</StackLayout>
+					<ListView [items]="itemsTopMenu" row="1">
+						<template let-item="item" let-i="index">
+							<StackLayout orientation="horizontal" class="item-menu-container" [nsRouterLink]="[item.path]">
+								<Image src="res://{{item.icon}}" class="icon-menu"> </Image>
+								<Label text="{{item.name}}" class="page-name" ></Label>
+							</StackLayout>
+						</template>
+					</ListView>				
+				</StackLayout>
+
+				<StackLayout class="bottom-menu">
+					<ListView [items]="itemsBottomMenu" row="1">
+						<template let-item="item" let-i="index">
+							<StackLayout orientation="horizontal" class="item-menu-container">
+								<Image src="res://{{item.icon}}" class="icon-menu"> </Image>
+								<Label text="{{item.name}}" class="page-name" ></Label>
+							</StackLayout>
+						</template>
+					</ListView>
+				</StackLayout>
+
+
+			</StackLayout>				
+    </StackLayout>
+
+    <StackLayout tkMainContent>
+			<GridLayout>
+				<!-- >aqui vai o código -->
+				<!-- <page-router-outlet></page-router-outlet> -->
+				<router-outlet></router-outlet>
+				
+				<!-- -->       
+			</GridLayout> 				
+    </StackLayout>
+</RadSideDrawer>

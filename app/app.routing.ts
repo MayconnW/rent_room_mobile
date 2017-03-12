@@ -4,14 +4,27 @@ import { ListComponent as ListClientsComponent} from "./pages/client/list.compon
 import { ListComponent as ListHotelsComponent} from "./pages/hotel/list.component";
 import { ListComponent as ListApartmentComponent} from "./pages/apartment/list.component";
 import { ListComponent as ListRoomComponent} from "./pages/room/list.component";
+import { InitialComponent } from "./pages/initial/initial.component";
+import { AppComponent } from "./app.component"
 
-export const routes = [
-  { path: "", component: LoginComponent },
+export const routes = [  
+  { path: "", component: LoginComponent },  
   { path: "list", component: ListComponent },
   { path: "clients", component: ListClientsComponent },
   { path: "hotels", component: ListHotelsComponent },
   { path: "apartments", component: ListApartmentComponent },
-  { path: "rooms", component: ListRoomComponent }
+  { path: "rooms", component: ListRoomComponent },
+  { path: "initial", component: InitialComponent },
+
+  /*{
+    path: "",
+    component: AppComponent,
+    children: [      
+      
+    ]
+  },*/   
+
+
 ];
 
 export const navigatableComponents = [
@@ -20,5 +33,6 @@ export const navigatableComponents = [
   ListClientsComponent,
   ListHotelsComponent,
   ListApartmentComponent,
-  ListRoomComponent
+  ListRoomComponent,
+  InitialComponent
 ];

@@ -1,4 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
+import { Page } from "ui/page";
+import { View } from "ui/core/view";
 import { Client } from "../../shared/client/client";
 import { ClientService } from "../../shared/client/client.service";
 
@@ -11,8 +13,9 @@ import { ClientService } from "../../shared/client/client.service";
 })
 export class ListComponent implements OnInit {
   clientList: Array<Client> = [];
-
-  constructor(private clientService: ClientService) {}
+  
+  @ViewChild("container") container: ElementRef;
+  constructor(private clientService: ClientService, private page: Page) {}
 
   ngOnInit() {
     this.clientService.list()

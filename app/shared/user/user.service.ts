@@ -5,6 +5,7 @@ import "rxjs/add/operator/do";
 import "rxjs/add/operator/map";
 
 import { User } from "./user";
+import { UserApi } from "./user.api";
 import { Config } from "../config";
 
 @Injectable()
@@ -31,8 +32,11 @@ export class UserService {
     )
     .map(res => {
       let response = res.json();      
-      let data = {email: response.data.user && response.data.user.email?response.data.user.email:'',
-                  name: response.data.user && response.data.user.name?response.data.user.name:'',
+      let responseUser = response.data.user;
+      let data = {id: responseUser && responseUser.id?responseUser.id:'',
+                  email: responseUser && responseUser.email?responseUser.email:'',
+                  name: responseUser && responseUser.name?responseUser.name:'',
+                  photo_url: responseUser && responseUser.photo_url?responseUser.photo_url:'',
                   token: response.data.token?response.data.token:'',
                   message: response.message?response.message:'',
                   status: response.status};
@@ -40,9 +44,13 @@ export class UserService {
     })
     .do(data => {
       if (data.status == 'success' && data.token != ''){
-        Config.token = data.token;        
+        Config.token = data.token; 
+        Config.userApi = new UserApi(data.id,
+                                     data.email,
+                                     data.name,
+                                     Config.siteUrl+data.photo_url);
       }else{        
-        Config.token = '';        
+        Config.token = '';
       }
     })
     .catch(this.handleErrors);

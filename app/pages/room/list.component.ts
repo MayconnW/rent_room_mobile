@@ -1,8 +1,9 @@
-import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
+import { Component, ElementRef, Injectable, OnInit, ViewChild, ChangeDetectorRef } from "@angular/core";
 import { Room } from "../../shared/room/room";
 import { RoomService } from "../../shared/room/room.service";
+import { Config } from "../../shared/config";
 
-import { TnsSideDrawer } from 'nativescript-sidedrawer'
+import { RadSideDrawerComponent, SideDrawerType } from "nativescript-telerik-ui/sidedrawer/angular";  
 
 @Component({
 	moduleId: module.id,
@@ -11,35 +12,61 @@ import { TnsSideDrawer } from 'nativescript-sidedrawer'
   styleUrls: ["list-common.css", "list.css"],
   providers: [RoomService]
 })
-export class ListComponent implements OnInit {
+export class ListComponent implements OnInit {  
+
+  itemsTopMenu:Array<Object>;
+  itemsBottomMenu:Array<Object>;
   list: Array<Room> = [];  
   i: number;
 
-  constructor(private service: RoomService) {
+  userApi = Config.userApi;
 
-    TnsSideDrawer.build({
-      templates: [{
-          title: 'Home',
-          androidIcon: 'ic_home_white_24dp',
-          iosIcon: 'ic_home_white',
-      }],
-      title: 'This App Name',
-      subtitle: 'is just as awesome as this subtitle!',
-      listener: (index) => {
-          this.i = index
-      },
-      context: this,
-    })
+  constructor(private service: RoomService,              
+              private _changeDetectionRef: ChangeDetectorRef) {       
+    this.itemsTopMenu = [
+            {
+              name:"Home",
+              icon: "ic_home_black_24dp"
+            },
+            {
+              name:"Clients",
+              icon: "ic_people_black_24dp"},
+            {
+              name:"Hotels",
+              icon: "ic_domain_black_24dp"
+            }
+        ]; 
 
+    this.itemsBottomMenu = [
+            {
+              name:"About",
+              icon: "ic_live_help_black_24dp"},
+            {
+              name:"Sair",
+              icon: "ic_cancel_black_24dp"}
+        ]; 
   }
+
+  @ViewChild(RadSideDrawerComponent) 
+    public drawerComponent: RadSideDrawerComponent;
+    public drawer: SideDrawerType;    
 
   ngOnInit() {
-
-
-
-    this.service.list("1")//???
-    .subscribe(list => {      
-      list.forEach( item => this.list.unshift(item));
-    });
+    
   }
+
+  ngAfterViewInit() {
+        this.drawer = this.drawerComponent.sideDrawer;
+        this._changeDetectionRef.detectChanges();
+
+
+        this.service.list("1")//???
+        .subscribe(list => {      
+          list.forEach( item => this.list.unshift(item));
+        });
+    }
+
+    public openDrawer() {      
+        this.drawer.toggleDrawerState();
+    }
 }

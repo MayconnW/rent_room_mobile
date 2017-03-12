@@ -1,0 +1,54 @@
+.avatar{
+	height: 75;
+  width: 75;
+  border-radius: 100;
+  margin-top: 10;
+  horizontal-align: right;
+  margin-right: 35;
+}
+
+.avatar-container {
+  border-color: white;
+  border-width: 2;
+  border-radius: 100;
+}
+
+.icon-menu{
+  height: 24;
+  width: 24;
+  margin-left: 10;
+}
+
+.bgc-white {
+    background-color: #fff;
+}
+.page-name {
+    padding: 13px 8px;
+    font-size: 16px;
+    color: #000;
+    margin-left: 2;
+}
+
+RadSideDrawer {  
+    padding: 0;
+    margin: 0;
+}
+
+.side-menu{
+  height: 100%;    
+}
+
+.bottom-menu{
+  vertical-align: bottom;
+  height: 30%;  
+}
+
+.top-menu{
+  height: 70%;
+}
+
+.item-menu-container{
+  padding-bottom: 10;
+  padding-top: 10;
+}
+

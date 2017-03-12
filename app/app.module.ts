@@ -4,6 +4,7 @@ import { NativeScriptHttpModule } from "nativescript-angular/http";
 import { NativeScriptModule } from "nativescript-angular/platform";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
 
+import { SIDEDRAWER_DIRECTIVES } from "nativescript-telerik-ui/sidedrawer/angular";
 
 import { AppComponent } from "./app.component";
 import { routes, navigatableComponents } from "./app.routing";
@@ -13,11 +14,12 @@ import { routes, navigatableComponents } from "./app.routing";
     NativeScriptModule,
     NativeScriptFormsModule,
     NativeScriptHttpModule,
-    NativeScriptRouterModule,
+    NativeScriptRouterModule,    
     NativeScriptRouterModule.forRoot(routes)
   ],
   declarations: [
-    AppComponent,
+    AppComponent, 
+    SIDEDRAWER_DIRECTIVES,   
     ...navigatableComponents
   ],
   bootstrap: [AppComponent]
