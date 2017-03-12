@@ -14,8 +14,7 @@ export class ApartmentService {
     this.headers.append("Content-Type", "application/json");
   }
 
-  list(hotel_id: string) {    
-    console.log('hi');
+  list(hotel_id: string) {        
     return this.http.get(
       Config.apiUrl + "/hotels/list_of_apartments?"+
                       "token=" + Config.token+
@@ -34,8 +33,7 @@ export class ApartmentService {
                         Config.siteUrl+item.photo_url
 					)
         );
-      });
-      console.dump(apartments);
+      });      
       return apartments;
     })
     .catch(this.handleErrors);

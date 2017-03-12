@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { Hotel } from "../../shared/hotel/hotel";
 import { HotelService } from "../../shared/hotel/hotel.service";
+import { Router } from "@angular/router";
 
 @Component({
 	moduleId: module.id,
@@ -12,7 +13,8 @@ import { HotelService } from "../../shared/hotel/hotel.service";
 export class ListComponent implements OnInit {
   hotelList: Array<Hotel> = [];
 
-  constructor(private hotelService: HotelService) {}
+  constructor(private hotelService: HotelService,
+              private router: Router) {}
 
   ngOnInit() {
     this.hotelService.list()
@@ -20,4 +22,10 @@ export class ListComponent implements OnInit {
       listOfHotels.forEach( hotel => this.hotelList.unshift(hotel));
     });
   }
+
+  listApartments(hotelId: number){    
+    let p:String = hotelId.toString();
+    this.router.navigate(["/apartments",p]);
+  }
+
 }

@@ -12,8 +12,8 @@ export const routes = [
   { path: "list", component: ListComponent },
   { path: "clients", component: ListClientsComponent },
   { path: "hotels", component: ListHotelsComponent },
-  { path: "apartments", component: ListApartmentComponent },
-  { path: "rooms", component: ListRoomComponent },
+  { path: "apartments/:hotel_id", component: ListApartmentComponent },
+  { path: "rooms/:apartment_id", component: ListRoomComponent },
   { path: "initial", component: InitialComponent },
 
   /*{

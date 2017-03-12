@@ -2,7 +2,7 @@
 <GridLayout>
 	<ListView [items]="hotelList">
 		<template let-item="item">
-			<stack-layout class="stack-item">
+			<stack-layout class="stack-item" (tap) = "listApartments(item.id)">
 				<grid-layout columns="*, auto" rows="auto, auto" class="list-item">
 					<StackLayout class="profile-container">
 						<StackLayout orientation="horizontal">

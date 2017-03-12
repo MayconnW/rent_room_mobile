@@ -25,16 +25,16 @@ export class RoomService {
     .map(res => res.json())
     .map(data => {      
       let rooms: Array<Room> = [];
-      data.data.forEach( item => {
+      data.data.forEach( item => {        
         rooms.push(
           new Room(item.id, 
-                    item.description, 
-                    item.number, 
-                    item.apartment_id, 
-                    item.price_month,
-                    item.price_secure,
-                    (item.status == 0),
-                    Config.siteUrl+item.photo_url)
+                  item.description, 
+                  item.number, 
+                  item.apartment_id, 
+                  item.price_month,
+                  item.price_secure,
+                  (item.status == 0),
+                  Config.siteUrl+item.photo_url)
         );
       });
       return rooms;

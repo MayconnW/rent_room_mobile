@@ -2,21 +2,10 @@ import { Component, ElementRef, Injectable, OnInit, ViewChild, ChangeDetectorRef
 import { Config } from "./shared/config";
 import { Router } from "@angular/router";
 
-
-
-
-
-
-//import {ROUTER_DIRECTIVES} from '@angular/router';  
-//import {NS_ROUTER_DIRECTIVES} from 'nativescript-angular/router';
-
-
-
 import { RadSideDrawerComponent, SideDrawerType } from "nativescript-telerik-ui/sidedrawer/angular";  
 
 @Component({
-  selector: "main",  
-  //template: "<page-router-outlet></page-router-outlet>"
+  selector: "main",    
   templateUrl: "./pages/initial/initial.html",
   styleUrls: ["./pages/initial/initial-common.css"]  
 })
